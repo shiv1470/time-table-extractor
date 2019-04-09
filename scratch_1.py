@@ -51,10 +51,16 @@ for i in range(sem2sheet.nrows):
     for j in range(sem2sheet.ncols):
         val=sem2sheet.cell_value(i,j)
         if fcode in val and fname not in val:
+            time=sem2sheet.cell_value(1,j)
+            if(val[0]=='P'):
+                x=time.split("-")
+                y=sem2sheet.cell_value(1,j+1)
+                y=y.split("-")
+                time=x[0]+"-"+y[1]
             for idx in range(i,-1,-1):
                 v=findday(sem2sheet.cell_value(idx,0))
                 if(v>=0):
-                    tt[v].append(val)
+                    tt[v].append(time+": "+val)
                     break
 sem4loc=("B TECH IV SEM.xls")
 sem4WB=xlrd.open_workbook(sem4loc)
@@ -63,10 +69,16 @@ for i in range(sem4sheet.nrows):
     for j in range(sem4sheet.ncols):
         val=sem4sheet.cell_value(i,j)
         if fcode in val and fname not in val:
+            time=sem4sheet.cell_value(1,j)
+            if(val[0]=='P'):
+                x=time.split("-")
+                y=sem4sheet.cell_value(1,j+1)
+                y=y.split("-")
+                time=x[0]+"-"+y[1]
             for idx in range(i,-1,-1):
                 v=findday(sem4sheet.cell_value(idx,0))
                 if(v>=0):
-                    tt[v].append(val)
+                    tt[v].append(time+": "+val)
                     break
 sem6loc=("B tech VI Sem.xls")
 sem6WB=xlrd.open_workbook(sem6loc)
@@ -75,10 +87,16 @@ for i in range(sem6sheet.nrows):
     for j in range(sem6sheet.ncols):
         val=sem6sheet.cell_value(i,j)
         if fcode in val and fname not in val:
+            time=sem6sheet.cell_value(1,j)
+            if(val[0]=='P'):
+                x=time.split("-")
+                y=sem6sheet.cell_value(1,j+1)
+                y=y.split("-")
+                time=x[0]+"-"+y[1]
             for idx in range(i,-1,-1):
                 v=findday(sem6sheet.cell_value(idx,0))
                 if(v>=0):
-                    tt[v].append(val)
+                    tt[v].append(time+": "+val)
                     break
 sem8loc=("B TECH VIII SEM.xls")
 sem8WB=xlrd.open_workbook(sem8loc)
@@ -87,10 +105,16 @@ for i in range(sem8sheet.nrows):
     for j in range(sem8sheet.ncols):
         val=sem8sheet.cell_value(i,j)
         if fcode in val and fname not in val:
+            time=sem8sheet.cell_value(1,j)
+            if(val[0]=='P'):
+                x=time.split("-")
+                y=sem8sheet.cell_value(1,j+1)
+                y=y.split("-")
+                time=x[0]+"-"+y[1]
             for idx in range(i,-1,-1):
                 v=findday(sem8sheet.cell_value(idx,0))
                 if(v>=0):
-                    tt[v].append(val)
+                    tt[v].append(time+": "+val)
                     break
 print("\n")
 print("Time Table for ",fname,":")
@@ -99,4 +123,4 @@ for i in tt:
         continue
     for j in i:
         print(j)
-    print("---------------------------")
+    print("-----------------------------------")
