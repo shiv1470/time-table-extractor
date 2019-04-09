@@ -1,6 +1,6 @@
 import xlrd
 def findname(FacultCode):
-    location=("/home/shivam/Documents/divyanshooter/Faculty Abbreviation Even 2019.xls")
+    location=("Faculty Abbreviation Even 2019.xls")
     abbWB = xlrd.open_workbook(location)
     mainsheet=abbWB.sheet_by_index(0)
     for i in range(mainsheet.nrows):
@@ -43,30 +43,60 @@ def findday(s):
     if "SAT" in s:
         return 5
     return -1
-def printtimetable(fcode):
-    tt=[["Monday:"],["Tuesday"],["Wednesday"],["Thursday"],["Friday"],["Saturday"]]
-    sem2loc=("/home/shivam/Documents/divyanshooter/B TECH II SEM.xls")
-    sem2WB=xlrd.open_workbook(sem2loc)
-    sem2sheet=sem2WB.sheet_by_index(0)
-    for i in range(sem2sheet.nrows):
-        for j in range(sem2sheet.ncols):
-            val=sem2sheet.cell_value(i,j)
-            if fcode in val:
-                for idx in range(i,-1,-1):
-                    v=findday(sem2sheet.cell_value(idx,0))
-                    if(v>=0):
-                        tt[v].append(val)
-                        break
-    sem4loc=("/home/shivam/Documents/divyanshooter/B TECH IV SEM.xls")
-    sem4WB=xlrd.open_workbook(sem4loc)
-
-    sem6loc=("/home/shivam/Documents/divyanshooter/B tech VI Sem.xls")
-    sem6WB=xlrd.open_workbook(sem6loc)
-
-    sem8loc=("/home/shivam/Documents/divyanshooter/B TECH VIII SEM.xls")
-    sem8WB=xlrd.open_workbook(sem8loc)
-
-    for i in tt:
-        for j in i:
-            print(j)
-printtimetable(fcode)
+tt=[["Monday:"],["Tuesday:"],["Wednesday:"],["Thursday:"],["Friday:"],["Saturday:"]]
+sem2loc=("B TECH II SEM.xls")
+sem2WB=xlrd.open_workbook(sem2loc)
+sem2sheet=sem2WB.sheet_by_index(0)
+for i in range(sem2sheet.nrows):
+    for j in range(sem2sheet.ncols):
+        val=sem2sheet.cell_value(i,j)
+        if fcode in val and fname not in val:
+            for idx in range(i,-1,-1):
+                v=findday(sem2sheet.cell_value(idx,0))
+                if(v>=0):
+                    tt[v].append(val)
+                    break
+sem4loc=("B TECH IV SEM.xls")
+sem4WB=xlrd.open_workbook(sem4loc)
+sem4sheet=sem4WB.sheet_by_index(0)
+for i in range(sem4sheet.nrows):
+    for j in range(sem4sheet.ncols):
+        val=sem4sheet.cell_value(i,j)
+        if fcode in val and fname not in val:
+            for idx in range(i,-1,-1):
+                v=findday(sem4sheet.cell_value(idx,0))
+                if(v>=0):
+                    tt[v].append(val)
+                    break
+sem6loc=("B tech VI Sem.xls")
+sem6WB=xlrd.open_workbook(sem6loc)
+sem6sheet=sem6WB.sheet_by_index(0)
+for i in range(sem6sheet.nrows):
+    for j in range(sem6sheet.ncols):
+        val=sem6sheet.cell_value(i,j)
+        if fcode in val and fname not in val:
+            for idx in range(i,-1,-1):
+                v=findday(sem6sheet.cell_value(idx,0))
+                if(v>=0):
+                    tt[v].append(val)
+                    break
+sem8loc=("B TECH VIII SEM.xls")
+sem8WB=xlrd.open_workbook(sem8loc)
+sem8sheet=sem8WB.sheet_by_index(0)
+for i in range(sem8sheet.nrows):
+    for j in range(sem8sheet.ncols):
+        val=sem8sheet.cell_value(i,j)
+        if fcode in val and fname not in val:
+            for idx in range(i,-1,-1):
+                v=findday(sem8sheet.cell_value(idx,0))
+                if(v>=0):
+                    tt[v].append(val)
+                    break
+print("\n")
+print("Time Table for ",fname,":")
+for i in tt:
+    if(len(i)<2):
+        continue
+    for j in i:
+        print(j)
+    print("---------------------------")
