@@ -1,4 +1,11 @@
 import xlrd
+def findTypeOfClass(code):
+    if code=='P':
+        return "Lab"
+    elif code=='L':
+        return "Lecture"
+    else :
+        return "Tutorial"
 def findname(FacultCode):
     location=("Faculty Abbreviation Even 2019.xls")
     abbWB = xlrd.open_workbook(location)
@@ -47,6 +54,7 @@ tt=[["Monday:"],["Tuesday:"],["Wednesday:"],["Thursday:"],["Friday:"],["Saturday
 sem2loc=("B TECH II SEM.xls")
 sem2WB=xlrd.open_workbook(sem2loc)
 sem2sheet=sem2WB.sheet_by_index(0)
+sem="   SEM2   "
 for i in range(sem2sheet.nrows):
     for j in range(sem2sheet.ncols):
         val=sem2sheet.cell_value(i,j)
@@ -57,14 +65,16 @@ for i in range(sem2sheet.nrows):
                 y=sem2sheet.cell_value(1,j+1)
                 y=y.split("-")
                 time=x[0]+"-"+y[1]
+            classType=findTypeOfClass(val[0])
             for idx in range(i,-1,-1):
                 v=findday(sem2sheet.cell_value(idx,0))
                 if(v>=0):
-                    tt[v].append(time+": "+val)
+                    tt[v].append(time+": "+sem+classType+"  "+val)
                     break
 sem4loc=("B TECH IV SEM.xls")
 sem4WB=xlrd.open_workbook(sem4loc)
 sem4sheet=sem4WB.sheet_by_index(0)
+sem="   SEM4   "
 for i in range(sem4sheet.nrows):
     for j in range(sem4sheet.ncols):
         val=sem4sheet.cell_value(i,j)
@@ -75,14 +85,16 @@ for i in range(sem4sheet.nrows):
                 y=sem4sheet.cell_value(1,j+1)
                 y=y.split("-")
                 time=x[0]+"-"+y[1]
+            classType=findTypeOfClass(val[0])
             for idx in range(i,-1,-1):
                 v=findday(sem4sheet.cell_value(idx,0))
                 if(v>=0):
-                    tt[v].append(time+": "+val)
+                    tt[v].append(time+": "+sem+classType+"  "+val)
                     break
 sem6loc=("B tech VI Sem.xls")
 sem6WB=xlrd.open_workbook(sem6loc)
 sem6sheet=sem6WB.sheet_by_index(0)
+sem="   SEM6  "
 for i in range(sem6sheet.nrows):
     for j in range(sem6sheet.ncols):
         val=sem6sheet.cell_value(i,j)
@@ -93,14 +105,16 @@ for i in range(sem6sheet.nrows):
                 y=sem6sheet.cell_value(1,j+1)
                 y=y.split("-")
                 time=x[0]+"-"+y[1]
+            classType=findTypeOfClass(val[0])
             for idx in range(i,-1,-1):
                 v=findday(sem6sheet.cell_value(idx,0))
                 if(v>=0):
-                    tt[v].append(time+": "+val)
+                    tt[v].append(time+": "+sem+classType+"  "+val)
                     break
 sem8loc=("B TECH VIII SEM.xls")
 sem8WB=xlrd.open_workbook(sem8loc)
 sem8sheet=sem8WB.sheet_by_index(0)
+sem="   SEM8  "
 for i in range(sem8sheet.nrows):
     for j in range(sem8sheet.ncols):
         val=sem8sheet.cell_value(i,j)
@@ -111,10 +125,11 @@ for i in range(sem8sheet.nrows):
                 y=sem8sheet.cell_value(1,j+1)
                 y=y.split("-")
                 time=x[0]+"-"+y[1]
+            classType=findTypeOfClass(val[0])
             for idx in range(i,-1,-1):
                 v=findday(sem8sheet.cell_value(idx,0))
                 if(v>=0):
-                    tt[v].append(time+": "+val)
+                    tt[v].append(time+": "+sem+classType+"   "+val)
                     break
 print("\n")
 print("Time Table for ",fname,":")
