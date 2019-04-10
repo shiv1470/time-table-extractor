@@ -9,8 +9,14 @@ def findTypeOfClass(code):
 def batchFinder(batch,val):
     if len(val)<5:
         return False
-    if ((batch[0]==val[1] and batch[1]==val[2] and val[3] not in "0123456789") or(batch[0]==val[1] and batch[1]==val[4] and val[5] not in "0123456789")):
-        return  True
+    else:
+       if(len(batch)==2):
+         if ((batch[0]==val[1] and batch[1]==val[2] and val[3] not in "0123456789") or(batch[0]==val[1] and batch[1]==val[4] and val[5] not in "0123456789")):
+            return  True
+       elif(len(batch)==3):
+          if ((batch[0]==val[1] and batch[1]==val[2] and batch[2]==val[3] and val[4] not in "0123456789") or(batch[0]==val[1] and batch[1]==val[5] and batch[2]==val[6] and val[7] not in "0123456789")):
+            return True
+
     return False
 print('Enter Batch:')
 bcode=input()
