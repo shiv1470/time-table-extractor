@@ -58,7 +58,7 @@ sem="   SEM2   "
 for i in range(sem2sheet.nrows):
     for j in range(sem2sheet.ncols):
         val=sem2sheet.cell_value(i,j)
-        if fcode in val and fname not in val:
+        if '/'+fcode in val or ' '+fcode in val or ','+fcode in val :
             time=sem2sheet.cell_value(1,j)
             if(val[0]=='P'):
                 x=time.split("-")
@@ -86,7 +86,7 @@ sem="   SEM4   "
 for i in range(sem4sheet.nrows):
     for j in range(sem4sheet.ncols):
         val=sem4sheet.cell_value(i,j)
-        if fcode in val and fname not in val:
+        if '/'+fcode in val or ' '+fcode in val or ','+fcode in val :
             time=sem4sheet.cell_value(1,j)
             if(val[0]=='P'):
                 x=time.split("-")
@@ -114,7 +114,7 @@ sem="   SEM6  "
 for i in range(sem6sheet.nrows):
     for j in range(sem6sheet.ncols):
         val=sem6sheet.cell_value(i,j)
-        if fcode in val and fname not in val:
+        if '/'+fcode in val or ' '+fcode in val or ','+fcode in val :
             time=sem6sheet.cell_value(1,j)
             if(val[0]=='P'):
                 x=time.split("-")
@@ -142,7 +142,7 @@ sem="   SEM8  "
 for i in range(sem8sheet.nrows):
     for j in range(sem8sheet.ncols):
         val=sem8sheet.cell_value(i,j)
-        if fcode in val and fname not in val:
+        if '/'+fcode in val or ' '+fcode in val or ','+fcode in val :
             time=sem8sheet.cell_value(1,j)
             if(val[0]=='P'):
                 x=time.split("-")
