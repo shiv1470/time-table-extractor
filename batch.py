@@ -12,25 +12,6 @@ def batchFinder(batch,val):
     if ((batch[0]==val[1] and batch[1]==val[2] and val[3] not in "0123456789") or(batch[0]==val[1] and batch[1]==val[4] and val[5] not in "0123456789")):
         return  True
     return False
-def findname(FacultCode):
-    location=("Faculty Abbreviation Even 2019.xls")
-    abbWB = xlrd.open_workbook(location)
-    mainsheet=abbWB.sheet_by_index(0)
-    for i in range(mainsheet.nrows):
-        try:
-            s0=mainsheet.cell_value(i,0)
-            if(FacultCode==s0):
-                return mainsheet.cell_value(i,1)
-            s2=mainsheet.cell_value(i,2)
-            if(FacultCode==s2):
-                return mainsheet.cell_value(i,3)
-            s4=mainsheet.cell_value(i,4)
-            if(FacultCode==s4):
-                return mainsheet.cell_value(i,5)
-        except:
-            print("Error reading value at row no.",i)
-            return -1
-    return None
 print('Enter Batch:')
 bcode=input()
 def findday(s):
@@ -55,7 +36,6 @@ sem="   SEM2   "
 for i in range(sem2sheet.nrows):
     for j in range(sem2sheet.ncols):
         val=sem2sheet.cell_value(i,j)
-
         if batchFinder(bcode,val):
             time=sem2sheet.cell_value(1,j)
             if(val[0]=='P'):
