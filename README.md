@@ -1,7 +1,7 @@
 # time-table-extractor
 This would generate time table for asked faculty from a master time table
 
-1. What this script do?
+1. What does scratch1 do?
 
 -> It takes Faculty code as input and prepare it's time-table from master time table which is much easier to read
 
@@ -12,3 +12,7 @@ This would generate time table for asked faculty from a master time table
 3. What are the modules it uses?
 
 -> It uses XLRD module of python3 which enable users to read excel file in structured manner.
+
+4. What does scratch2 do?
+
+-> It takes input students and there registered subjects using file handling(Read mode) and make a graph where node denotes subject and an edge between subjects means both subjects cannot be scheduled on same day. It then generates a time table using minimum coloring.
