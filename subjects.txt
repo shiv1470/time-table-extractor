@@ -1,0 +1,15 @@
+13
+15B11CI411 -> Algorithm And Problem Solving
+15B11CI412 -> Operating Systems And Systems Programming
+19B12CS211 -> Automata Theory and Computations
+16B1NCI432 -> Fuzzy Logic and Neural network
+16B1NCI440 -> Computer Graphics and Image Processing
+18B12CS311 -> Object Oriented Analysis and Design
+15B11MA301 -> Probability and random Processes
+16B1NHS431 -> Human Resource Management
+16B1NHS432 -> Positive Psychology
+16B1NHS433 -> Financial Management
+16B1NHS434 -> Introduction to Contemporary Forms of Literature
+16B1NHS435 -> Sociology of Media
+19B12HS411 -> Market Research & Consumer Behaviour
+
