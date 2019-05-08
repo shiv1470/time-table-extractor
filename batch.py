@@ -19,6 +19,8 @@ def main():
                 return True
 
         return False
+    print("Enter The Sem")
+    semcode=int(input())
     print('Enter Batch:')
     bcode=input()
     def findday(s):
@@ -37,9 +39,18 @@ def main():
         return -1
     tt=[["Monday:"],["Tuesday:"],["Wednesday:"],["Thursday:"],["Friday:"],["Saturday:"]]
     sem2loc=("B TECH II SEM.xls")
+    sem="   SEM2   "
+    if(semcode==4):
+        sem2loc="B TECH IV SEM.xls"
+        sem="   SEM4   "
+    elif(semcode==6):
+        sem2loc="B tech VI Sem.xls"
+        sem="   SEM6   "
+    elif(semcode==8):
+        sem2loc="B TECH VIII SEM.xls"
+        sem="   SEM8   "
     sem2WB=xlrd.open_workbook(sem2loc)
     sem2sheet=sem2WB.sheet_by_index(0)
-    sem="   SEM2   "
     for i in range(sem2sheet.nrows):
         for j in range(sem2sheet.ncols):
             val=sem2sheet.cell_value(i,j)
