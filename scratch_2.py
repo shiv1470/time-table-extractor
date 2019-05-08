@@ -53,7 +53,9 @@ for single_date in daterange:
         continue
     else:
         s=str(single_date).split()[0]
-        print("\n\n",s,'('+week[single_date.weekday()]+')',":\n")
+        print("\n-------------------------------------------------")
+        print(s,'('+week[single_date.weekday()]+')',":")
+        print("-------------------------------------------------\n")
         for i in range(n):
             if(currcol==colors[i]):
                 print(sub[i][0],sub[i][1],end="")
