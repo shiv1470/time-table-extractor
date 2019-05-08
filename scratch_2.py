@@ -33,4 +33,31 @@ for i in range(1,n):
             colors[i]=col
             colorsused=max(colorsused,col)
             break
-print(colors)
+import pandas as pd
+import  datetime
+print("Enter starting of exam in YYYY-MM-DD format: ")
+d1,d2="",""
+week=['Monday','Tuesday','Wednesday','Thursday', 'Friday', 'Saturday','Sunday']
+while(True):
+    try:
+        d1=input()
+        d1=pd.to_datetime(d1)
+        break
+    except:
+        print("Enter Valid Date!")
+d2=d1 + datetime.timedelta(days=2*colorsused)
+daterange = pd.date_range(d1,d2)
+currcol=1
+for single_date in daterange:
+    if(single_date.weekday()==6):
+        continue
+    else:
+        s=str(single_date).split()[0]
+        print("\n\n",s,'('+week[single_date.weekday()]+')',":\n")
+        for i in range(n):
+            if(currcol==colors[i]):
+                print(sub[i][0],sub[i][1],end="")
+        if(currcol>=colorsused):
+            break
+        else:
+            currcol+=1
